@@ -216,6 +216,7 @@ class ProcessPage : AppCompatActivity() {
         startActivityForResult(galleryIntent, IMAGE_PICK_REQUEST_CODE)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
