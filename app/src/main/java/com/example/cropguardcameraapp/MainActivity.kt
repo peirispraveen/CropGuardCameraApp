@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageView: ImageView
     private lateinit var exitPage: Button
     private lateinit var sendToProcess: Button
+    private lateinit var sendToModel: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,14 @@ class MainActivity : AppCompatActivity() {
 
         sendToProcess.setOnClickListener {
             val intent = Intent(this, ProcessPage::class.java)
+            startActivity(intent)
+        }
+
+        sendToModel = findViewById(R.id.sendToModel)
+
+
+        sendToModel.setOnClickListener {
+            val intent = Intent(this, Modeltest::class.java)
             startActivity(intent)
         }
 

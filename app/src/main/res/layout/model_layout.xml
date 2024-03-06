@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Modeltest">
 
     <TextView
         android:id="@+id/predict_text"
@@ -11,22 +12,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="164dp"
         android:layout_marginTop="16dp"
-        android:text="Prediction"
+        android:text="@string/prediction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="394dp"
-        android:layout_height="297dp"
+        android:layout_width="347dp"
+        android:layout_height="270dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="112dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/classifyButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/predict_text"
-        app:layout_constraintVertical_bias="0.913"
-        tools:layout_editor_absoluteX="8dp" />
+        app:layout_constraintVertical_bias="0.93"
+        android:contentDescription="@string/pred_result" />
 
     <Button
         android:id="@+id/classifyButton"
@@ -34,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="112dp"
-        android:text="Select Image"
+        android:text="@string/select_image"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
