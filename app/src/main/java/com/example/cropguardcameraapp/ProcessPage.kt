@@ -150,7 +150,6 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.media.ThumbnailUtils
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
@@ -162,17 +161,16 @@ import androidx.appcompat.app.AppCompatActivity
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
-import java.io.IOException;
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
 import com.example.cropguardcameraapp.ml.PotatoMobilenetTflite
 
 class ProcessPage : AppCompatActivity() {
-    lateinit var cameraButton: Button
-    lateinit var galleryButton: Button
+    lateinit var camera: Button
+    lateinit var gallery: Button
     lateinit var imageView: ImageView
-    lateinit var resultTextView: TextView
+    lateinit var result: TextView
 
     val imageSize = 256
 
@@ -185,12 +183,12 @@ class ProcessPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.process_pic)
 
-        cameraButton = findViewById(R.id.button)
-        galleryButton = findViewById(R.id.button2)
-        resultTextView = findViewById(R.id.result)
+        camera = findViewById(R.id.button)
+        gallery = findViewById(R.id.button2)
+        result = findViewById(R.id.result)
         imageView = findViewById(R.id.imageView)
 
-        cameraButton.setOnClickListener {
+        camera.setOnClickListener {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 openCamera()
             } else {
@@ -198,7 +196,7 @@ class ProcessPage : AppCompatActivity() {
             }
         }
 
-        galleryButton.setOnClickListener {
+        gallery.setOnClickListener {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 openGallery()
             } else {
@@ -276,7 +274,7 @@ class ProcessPage : AppCompatActivity() {
             }
         }
         val classes = arrayOf("Potato___Early_blight", "Potato___Late_blight", "Potato___healthy")
-        resultTextView.text = classes[maxPos]
+        result.text = classes[maxPos]
 
         model.close()
     }
