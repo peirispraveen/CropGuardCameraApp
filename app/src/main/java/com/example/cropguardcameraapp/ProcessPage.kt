@@ -164,7 +164,8 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
-import com.example.cropguardcameraapp.ml.PotatoMobilenetTflite
+//import com.example.cropguardcameraapp.ml.PotatoMobilenetTflite
+import com.example.cropguardcameraapp.ml.PotatoMobilenetv2
 
 class ProcessPage : AppCompatActivity() {
     lateinit var camera: Button
@@ -241,7 +242,7 @@ class ProcessPage : AppCompatActivity() {
     }
 
     private fun classifyImage(image: Bitmap) {
-        val model = PotatoMobilenetTflite.newInstance(applicationContext)
+        val model = PotatoMobilenetv2.newInstance(applicationContext)
 
         val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.FLOAT32)
         val byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3)
