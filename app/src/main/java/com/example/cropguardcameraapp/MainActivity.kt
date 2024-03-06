@@ -45,14 +45,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        sendToModel = findViewById(R.id.sendToModel)
-
-
-        sendToModel.setOnClickListener {
-            val intent = Intent(this, Modeltest::class.java)
-            startActivity(intent)
-        }
-
     }
 
     @Deprecated("Deprecated in Java")
