@@ -8,11 +8,12 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import org.tensorflow.lite.Interpreter
 import java.nio.channels.FileChannel
 
 class Modeltest : AppCompatActivity() {
@@ -20,6 +21,7 @@ class Modeltest : AppCompatActivity() {
     private lateinit var imageView: ImageView
     private lateinit var classifyButton: Button
     private lateinit var interpreter: Interpreter
+    private lateinit var resultTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,8 @@ class Modeltest : AppCompatActivity() {
 
         imageView = findViewById(R.id.imageView)
         classifyButton = findViewById(R.id.classifyButton)
+
+        resultTextView = findViewById(R.id.resultTextView)
 
         classifyButton.setOnClickListener {
             openGallery()
@@ -51,6 +55,7 @@ class Modeltest : AppCompatActivity() {
         startActivityForResult(intent, REQUEST_IMAGE_GALLERY)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_GALLERY) {
@@ -62,14 +67,16 @@ class Modeltest : AppCompatActivity() {
             // Preprocess the image and run inference
             val scaledBitmap = Bitmap.createScaledBitmap(selectedImage, INPUT_SIZE, INPUT_SIZE, true)
             val inputBuffer = convertBitmapToByteBuffer(scaledBitmap)
-            val outputBuffer = ByteBuffer.allocateDirect(OUTPUT_SIZE).order(ByteOrder.nativeOrder())
+            val outputBuffer = ByteBuffer.allocateDirect(OUTPUT_SIZE * java.lang.Float.SIZE / java.lang.Byte.SIZE).order(ByteOrder.nativeOrder())
 
             interpreter.run(inputBuffer, outputBuffer)
 
             // Process the output
             val outputArray = outputBuffer.array()
+            val result = processOutput(outputArray)
+
             // Display the result to the user
-            // Here you can implement code to show the result on the screen
+            resultTextView.text = result
         }
     }
 
@@ -88,6 +95,23 @@ class Modeltest : AppCompatActivity() {
             }
         }
         return byteBuffer
+    }
+
+    private fun processOutput(outputArray: ByteArray): String {
+        // Convert the output array to float array
+        val floatArray = outputArray.map { it.toFloat() / 255.0f }.toFloatArray()
+
+        // Process the output to get the predicted class names
+        val classNames = listOf("Potato___Early_blight", "Potato___Late_blight", "Potato___healthy")
+        val maxIndex = floatArray.indices.maxByOrNull { floatArray[it] } ?: -1
+        val maxProb = floatArray[maxIndex] * 100.0f
+
+        // Prepare the result string
+        val result = StringBuilder()
+        result.append("Predicted Class: ${classNames[maxIndex]}\n")
+        result.append("Probability: ${"%.2f".format(maxProb)}%")
+
+        return result.toString()
     }
 
     companion object {

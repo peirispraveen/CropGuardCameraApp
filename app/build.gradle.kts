@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.cropguardcameraapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.cropguardcameraapp"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -43,5 +43,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("org.tensorflow:tensorflow-lite-task-vision-play-services:0.4.2")
     implementation ("com.google.android.gms:play-services-tflite-gpu:16.2.0")
-    implementation ("org.tensorflow:tensorflow-lite:2.8.0")
+    implementation ("org.tensorflow:tensorflow-lite-api:2.12.0")
+    implementation ("org.tensorflow:tensorflow-lite:+")
 }

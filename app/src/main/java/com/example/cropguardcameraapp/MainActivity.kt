@@ -55,10 +55,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if ((requestCode == this.REQUEST_CODE) && (resultCode == Activity.RESULT_OK)) {
             val photo = data?.extras?.get("data") as? Bitmap
             imageView.setImageBitmap(photo)
         } else {
