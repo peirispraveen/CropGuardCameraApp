@@ -147,7 +147,6 @@ class ProcessPage : AppCompatActivity() {
     }
 
 
-
     private fun classifyImage(image: Bitmap) {
         val model = PotatoMobilenetv2.newInstance(applicationContext)
 

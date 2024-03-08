@@ -1,31 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".StartUp">
-
-    <!-- Logo Image View -->
-
-    <!-- Login Button -->
-
-    <ImageView
-        android:id="@+id/logoView"
-        android:layout_width="225dp"
-        android:layout_height="206dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="138dp"
-        android:scaleType="centerCrop"/>
-<!--        android:src="../../assets/favicon1transparent-modified.png" />-->
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/relativeLayout2"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_margin="10dp"
+tools:context=".StartUp">
 
     <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/sendToPaddy"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logoView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
-        android:text="Login" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="295dp"
+        android:text="@string/tea_leaf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageview1" />
+
+    <Button
+    android:id="@+id/sendToProcess"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="84dp"
+    android:layout_marginTop="104dp"
+    android:layout_marginBottom="133dp"
+    android:text="@string/potato_leaf"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/imageview1" />
+
+<Button
+    android:id="@+id/sendToTea"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="84dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginBottom="214dp"
+    android:text="@string/tea_leaf"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/imageview1" />
+
+<Button
+    android:id="@+id/exitButton"
+    android:layout_width="97dp"
+    android:layout_height="57dp"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="136dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginBottom="43dp"
+    android:text="@string/exit"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageview1"
+        android:layout_width="234dp"
+        android:layout_height="193dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="407dp"
+        android:contentDescription="@string/uploaded_image"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </RelativeLayout>

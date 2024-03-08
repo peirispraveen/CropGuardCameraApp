@@ -28,8 +28,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".StartUp"
+            android:exported="true" />
+        <activity
             android:name=".ProcessPage"
             android:exported="true" />
+
     </application>
 
 </manifest>

@@ -9,4 +9,7 @@
     <string name="prediction">Prediction</string>
     <string name="pred_result">pred_result</string>
     <string name="select_image">Select Image</string>
+    <string name="start">Start</string>
+    <string name="potato_leaf">Potato Leaf</string>
+    <string name="tea_leaf">Tea Leaf</string>
 </resources>
