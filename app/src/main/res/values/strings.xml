@@ -12,4 +12,6 @@
     <string name="start">Start</string>
     <string name="potato_leaf">Potato Leaf</string>
     <string name="tea_leaf">Tea Leaf</string>
+    <string name="paddy_leaf">Paddy Leaf</string>
+    <string name="chatbot">ChatBot</string>
 </resources>
