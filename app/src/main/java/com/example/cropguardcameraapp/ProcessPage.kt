@@ -21,7 +21,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 import com.example.cropguardcameraapp.ml.PotatoMobilenetv2
-import com.example.cropguardcameraapp.ml.CropTflite
+//import com.example.cropguardcameraapp.ml.CropTflite
 
 
 class ProcessPage : AppCompatActivity() {
@@ -71,6 +71,8 @@ class ProcessPage : AppCompatActivity() {
                 requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), STORAGE_PERMISSION_CODE)
             }
         }
+
+
     }
 
     @Deprecated("Deprecated in Java")
@@ -105,46 +107,46 @@ class ProcessPage : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    private fun classifyCrop(image: Bitmap) {
-        val cropModel = CropTflite.newInstance(applicationContext)
-
-        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.FLOAT32)
-        val byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3)
-        byteBuffer.order(ByteOrder.nativeOrder())
-
-        val intValues = IntArray(imageSize * imageSize)
-        image.getPixels(intValues, 0, image.width, 0, 0, image.width, image.height)
-        var pixel = 0
-        for (i in 0 until imageSize) {
-            for (j in 0 until imageSize) {
-                val value = intValues[pixel++]
-                byteBuffer.putFloat(((value shr 16) and 0xFF) * (1f / 255))
-                byteBuffer.putFloat(((value shr 8) and 0xFF) * (1f / 255))
-                byteBuffer.putFloat((value and 0xFF) * (1f / 255))
-            }
-        }
-
-        inputFeature0.loadBuffer(byteBuffer)
-
-        val outputs = cropModel.process(inputFeature0)
-        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
-
-        val confidences = outputFeature0.floatArray
-
-        var maxPos = 0
-        var maxConfidence = 0f
-        for (i in confidences.indices) {
-            if (confidences[i] > maxConfidence) {
-                maxConfidence = confidences[i]
-                maxPos = i
-            }
-        }
-        val classes = arrayOf("paddy", "potato", "tea")
-        result.text = classes[maxPos]
-
-        cropModel.close()
-
-    }
+//    private fun classifyCrop(image: Bitmap) {
+//        val cropModel = CropTflite.newInstance(applicationContext)
+//
+//        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.FLOAT32)
+//        val byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3)
+//        byteBuffer.order(ByteOrder.nativeOrder())
+//
+//        val intValues = IntArray(imageSize * imageSize)
+//        image.getPixels(intValues, 0, image.width, 0, 0, image.width, image.height)
+//        var pixel = 0
+//        for (i in 0 until imageSize) {
+//            for (j in 0 until imageSize) {
+//                val value = intValues[pixel++]
+//                byteBuffer.putFloat(((value shr 16) and 0xFF) * (1f / 255))
+//                byteBuffer.putFloat(((value shr 8) and 0xFF) * (1f / 255))
+//                byteBuffer.putFloat((value and 0xFF) * (1f / 255))
+//            }
+//        }
+//
+//        inputFeature0.loadBuffer(byteBuffer)
+//
+//        val outputs = cropModel.process(inputFeature0)
+//        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+//
+//        val confidences = outputFeature0.floatArray
+//
+//        var maxPos = 0
+//        var maxConfidence = 0f
+//        for (i in confidences.indices) {
+//            if (confidences[i] > maxConfidence) {
+//                maxConfidence = confidences[i]
+//                maxPos = i
+//            }
+//        }
+//        val classes = arrayOf("paddy", "potato", "tea")
+//        result.text = classes[maxPos]
+//
+//        cropModel.close()
+//
+//    }
 
 
     private fun classifyImage(image: Bitmap) {

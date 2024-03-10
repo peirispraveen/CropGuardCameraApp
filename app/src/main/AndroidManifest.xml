@@ -33,6 +33,12 @@
         <activity
             android:name=".ProcessPage"
             android:exported="true" />
+        <activity
+            android:name=".PaddyPage"
+            android:exported="true" />
+        <activity
+            android:name=".TeaPage"
+            android:exported="true" />
 
     </application>
 
