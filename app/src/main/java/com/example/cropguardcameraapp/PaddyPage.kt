@@ -13,23 +13,23 @@ import android.graphics.Bitmap
 import android.media.ThumbnailUtils
 import android.provider.MediaStore
 
-import org.tensorflow.lite.DataType;
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import java.io.IOException
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 import com.example.cropguardcameraapp.ml.RiceModel
 
 
 class PaddyPage : AppCompatActivity() {
-    lateinit var camera: Button
-    lateinit var gallery: Button
-    lateinit var imageView: ImageView
-    lateinit var result: TextView
+    private lateinit var camera: Button
+    private lateinit var gallery: Button
+    private lateinit var imageView: ImageView
+    private lateinit var result: TextView
 
-    val imageSize = 256
+    private val imageSize = 224
 
     private val STORAGE_PERMISSION_CODE = 101
     private val IMAGE_PICK_REQUEST_CODE = 102
