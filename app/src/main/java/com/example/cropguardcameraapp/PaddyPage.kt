@@ -43,10 +43,10 @@ class PaddyPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.paddy_page)
-        camera = findViewById(R.id.button)
-        gallery = findViewById(R.id.button2)
-        result = findViewById(R.id.result)
-        imageView = findViewById(R.id.imageView)
+        camera = findViewById(R.id.paddyCam)
+        gallery = findViewById(R.id.paddyGal)
+        result = findViewById(R.id.paddyRes)
+        imageView = findViewById(R.id.paddyImgV)
 
 
 //        camera.setOnClickListener { view ->

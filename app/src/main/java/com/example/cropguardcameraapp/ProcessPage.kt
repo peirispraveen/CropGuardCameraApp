@@ -25,12 +25,12 @@ import com.example.cropguardcameraapp.ml.PotatoMobilenetv2
 
 
 class ProcessPage : AppCompatActivity() {
-    lateinit var camera: Button
-    lateinit var gallery: Button
-    lateinit var imageView: ImageView
-    lateinit var result: TextView
+    private lateinit var camera: Button
+    private lateinit var gallery: Button
+    private lateinit var imageView: ImageView
+    private lateinit var result: TextView
 
-    val imageSize = 256
+    private val imageSize = 256
 
     private val STORAGE_PERMISSION_CODE = 101
     private val IMAGE_PICK_REQUEST_CODE = 102
@@ -44,10 +44,10 @@ class ProcessPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.process_pic)
-        camera = findViewById(R.id.button)
-        gallery = findViewById(R.id.button2)
-        result = findViewById(R.id.result)
-        imageView = findViewById(R.id.imageView)
+        camera = findViewById(R.id.potatoCam)
+        gallery = findViewById(R.id.potatoGal)
+        result = findViewById(R.id.potatoRes)
+        imageView = findViewById(R.id.potatoImgV)
 
 
 //        camera.setOnClickListener { view ->
