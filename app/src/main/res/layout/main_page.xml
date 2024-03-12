@@ -11,53 +11,53 @@ tools:context=".StartUp">
 
     <Button
         android:id="@+id/sendToPaddy"
-        android:layout_width="100dp"
+        android:layout_width="115dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="70dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="279dp"
+        android:layout_marginBottom="280dp"
         android:text="@string/paddy_leaf"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageview1" />
 
     <Button
         android:id="@+id/sendToProcess"
-        android:layout_width="100dp"
+        android:layout_width="115dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="104dp"
-        android:layout_marginBottom="143dp"
+        android:layout_marginBottom="140dp"
         android:text="@string/potato_leaf"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageview1" />
 
     <Button
         android:id="@+id/sendToChat"
-        android:layout_width="100dp"
+        android:layout_width="115dp"
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="84dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="142dp"
+        android:layout_marginBottom="140dp"
         android:text="@string/chatbot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageview1" />
 
     <Button
         android:id="@+id/sendToTea"
-        android:layout_width="100dp"
+        android:layout_width="115dp"
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="84dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="70dp"
         android:layout_marginBottom="280dp"
         android:text="@string/tea_leaf"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@ tools:context=".StartUp">
         android:layout_marginStart="136dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="149dp"
-        android:layout_marginBottom="47dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/exit"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -84,8 +84,8 @@ tools:context=".StartUp">
         android:layout_alignParentBottom="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="465dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="442dp"
         android:contentDescription="@string/uploaded_image"
         app:layout_constraintStart_toStartOf="parent" />
 
