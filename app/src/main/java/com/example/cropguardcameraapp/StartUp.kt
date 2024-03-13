@@ -1,14 +1,10 @@
 package com.example.cropguardcameraapp
 
-import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.io.IOException
 import kotlin.system.exitProcess
@@ -20,6 +16,7 @@ class StartUp : AppCompatActivity() {
     private lateinit var sendToPotato: Button
     private lateinit var sendToTea: Button
     private lateinit var sendToPaddy: Button
+    private lateinit var sendToChat: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +42,7 @@ class StartUp : AppCompatActivity() {
         sendToPotato = findViewById(R.id.sendToProcess)
         sendToPaddy = findViewById(R.id.sendToPaddy)
         sendToTea = findViewById(R.id.sendToTea)
+        sendToChat = findViewById(R.id.sendToChat)
 
         sendToPotato.setOnClickListener {
             val intent = Intent(this, ProcessPage::class.java)
@@ -58,6 +56,10 @@ class StartUp : AppCompatActivity() {
 
         sendToTea.setOnClickListener {
             val intent = Intent(this, TeaPage::class.java)
+            startActivity(intent)
+        }
+        sendToChat.setOnClickListener {
+            val intent = Intent(this, Chatbot::class.java)
             startActivity(intent)
         }
 

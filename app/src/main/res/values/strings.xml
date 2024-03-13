@@ -17,4 +17,6 @@
     <string name="take_picture">Take Picture</string>
     <string name="launch_gallery">Launch Gallery</string>
     <string name="classified_as">Classified as:</string>
+    <string name="send">Send</string>
+    <string name="type_your_message">Type your message…</string>
 </resources>
