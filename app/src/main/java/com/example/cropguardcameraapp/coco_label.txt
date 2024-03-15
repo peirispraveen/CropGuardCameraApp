@@ -1,0 +1,4 @@
+brown_blight
+gray_blight
+white_spot
+healthy
