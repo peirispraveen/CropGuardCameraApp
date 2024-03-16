@@ -54,8 +54,7 @@ class TeaPage : AppCompatActivity() {
 
         yolov8detector = Yolov8Detect()
         yolov8detector.modelFile = "best_float16.tflite" // Setting the model file name
-        val currentModelFile = yolov8detector.modelFile // Retrieving the current model file name
-        yolov8detector.initialModel(this)
+        yolov8detector.initialModel(this) // Initialize the model
 
         camera.setOnClickListener {
             val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
