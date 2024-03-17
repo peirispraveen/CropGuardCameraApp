@@ -139,7 +139,8 @@ class PaddyPage : AppCompatActivity() {
                 maxPos = i
             }
         }
-        val classes = arrayOf("bacterial_leaf_blight", "brown_spot", "normal")
+//        val classes = arrayOf("bacterial_leaf_blight", "brown_spot", "normal")
+        val classes = arrayOf("bacterial_leaf_blight", "blast", "brown_spot", "normal")
         result.text = classes[maxPos]
 
         model.close()
